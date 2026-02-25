@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+{% load static %}
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>
+        {% block title %}
+            User Login
+        {% endblock %}
+    </title>
+    <link rel="stylesheet" href="{% static 'style.css' %}">
+</head>
+<body>
+<div class="nav-control">
+    <a href="/" style="margin-left: 40%" class="btn">Home</a>
+    <a href="/hobbies/" class="btn">Hobbies</a>
+    <a href="/portfolio/" class="btn">Portfolio</a>
+    <a href="/create_account" style="margin-left: 10%" class="btn">Create Account</a>
+</div>
+    <br>
+    <h1>Login</h1>
+    <form action="/login" method="post" class="form-with-validation">
+        {% csrf_token %}
+        {{ form }}
+        {% if request.GET.next %}
+            <input type="hidden" name="next" value="{{ request.GET.next }}"/>
+        {% endif %}
+        <button class="form-submit">Login</button>
+    </form>
+    <main>
+        {% block content %}
+        {% endblock %}
+    </main>
+</body>
+</html>

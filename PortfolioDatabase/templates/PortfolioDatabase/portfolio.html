@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+{% load static %}
+<html lang="en">
+    <head>
+        <title>Portfolio</title>
+        <link rel="stylesheet" href="../../../static/style.css">
+    </head>
+    <body>
+        {% if portfolio_list %}
+            <div class="nav-control">
+            <a href="/" style="margin-left: 40%" class="btn">Home</a>
+            <a href="/hobbies/" class="btn">Hobbies</a>
+            {% if user.is_authenticated %}
+                <form class="logout" action="/logout" method="post">
+                    {% csrf_token %}
+                    <button class="logout-button">Logout</button>
+                </form>
+            {% endif %}
+            </div>
+            <h2 class="detailed">Portfolio</h2>
+            {% if user.is_authenticated %}
+                <a href="/portfolio/add" class="btn">Add Project</a>
+            {% endif %}
+            <ul class="detailed">
+            {% for project in portfolio_list %}
+                <li>
+                    <h4 class="detailed">
+                        <a href="{% url 'portfolio_view' slug=project.slug %}" class="port_item">{{ project.name }}:</a>
+                    </h4>
+                    <p class="dispPage">{{ project.description }}</p>
+                        <p class="dispPage">Click <a href="{{ project.link }}" target="_blank" rel="noopener noreferrer">here</a> to view the GitHub repo</p>
+                    {% if user.is_authenticated %}
+                        <a href="{% url 'portfolio_edit' slug=project.slug %}" style="margin-left: 30%" class="btn">edit</a>
+                        <a href="{% url 'portfolio_delete' slug=project.slug %}" style="margin: 5px" class="btn">delete</a>
+                    {% endif %}
+                    {% if user.is_authenticated %}
+                        <a href="{% url 'portfolio_edit' slug=project.slug %}" style="margin: 5px" class="btn">edit</a>
+                        <a href="{% url 'portfolio_delete' slug=project.slug %}" style="margin: 5px" class="btn">delete</a>
+                    {% endif %}
+                <br>
+                </li>
+            {% endfor %}
+            </ul>
+        {% else %}
+            <p>No portfolio is available.</p>
+        {% endif %}
+    </body>
+</html>

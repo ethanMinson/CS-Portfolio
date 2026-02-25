@@ -1,0 +1,25 @@
+{% load static %}
+<html lang="en">
+    <head>
+        <title>Home</title>
+        <link rel="stylesheet" href="../../../static/style.css">
+    </head>
+    <body>
+    <div class="nav-control">
+        <a href="/portfolio/" style="margin-left: 41%" class="btn">Projects Portfolio</a>
+        <a href="/hobbies/" class="btn">Hobbies</a>
+        {% if user.is_authenticated %}
+            <form class="logout" action="/logout" method="post">
+                {% csrf_token %}
+                <button class="logout-button">Logout</button>
+            </form>
+        {% endif %}
+    </div>
+        <br>
+        <h1>Home Page</h1>
+        <p class="home">{{ home_text }}</p>
+        <p class="home">Contact Info:</p>
+        <p class="home">Email: jediminson@gmail.com</p>
+        <img src="{% static 'welcome.png' %}" alt="Welcome" class="welcome"/>
+    </body>
+</html>

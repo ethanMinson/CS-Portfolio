@@ -1,0 +1,192 @@
+.btn{
+    padding: 15px 7px;
+    background-color: lightblue;
+    text-decoration: none;
+    color: dimgray;
+    border-radius: 5px;
+    margin-top: 25px;
+}
+.btn:hover{
+    background-color: aquamarine;
+}
+
+li{
+    list-style-type: none;
+}
+
+.field-error-message{
+    color: red;
+    font-style: italic;
+}
+
+.form-error-message{
+    color:purple;
+    font-style: italic;
+}
+
+.field-label{
+    font-weight: 700;
+    color:black;
+    margin-top: 15px;
+    margin-bottom: 5px;
+}
+
+.form-control{
+    padding: 5px 10px 5px 10px;
+}
+
+p.base{
+    margin: 1%;
+    width: 450px;
+}
+
+p.home{
+    margin: 2% 30%;
+    width: 500px;
+}
+
+p.dispPage{
+    width: 550px;
+    margin: 2% 27%;
+}
+p.contact{
+    display: inline;
+}
+
+li.hd{
+    margin-left: 30%;
+}
+
+img.hd{
+    display: block;
+    width: 100%;
+    max-width: 550px;
+}
+
+p.hd{
+    width: 550px;
+}
+
+img.displayed {
+    display: block;
+    width: 100%;
+    max-width: 400px;
+    margin: 2% 30%;
+}
+
+h2.detailed{
+    margin: 2% 30%;
+    color: dodgerblue;
+}
+
+body{
+    background-color: lightcyan;
+}
+
+h1{
+    width: 300px;
+    margin: 2% 43%;
+    color: dodgerblue;
+}
+
+ul.detailed{
+    list-style-type: circle;
+}
+
+img.welcome{
+    display: block;
+    width: 100%;
+    max-width: 400px;
+    margin-left: 35%;
+}
+
+img.contact{
+    display: inline;
+    max-width: 30px;
+    margin: 0;
+}
+
+.contact_body{
+    margin-left: 10%;
+}
+
+h4.detailed{
+    margin: 2% 30%;
+    color: darkcyan;
+}
+
+.main_content {
+    display: flex;
+    justify-content: center;
+    width: 100%;
+}
+
+.form-with-validation {
+    font-size: 1rem;
+    padding: 1rem;
+    display: flex;
+    flex-flow: column;
+    gap: 1rem;
+}
+
+.form-with-validation div {
+    display: flex;
+    flex-flow: column;
+    gap: 0.5rem;
+}
+
+.form-with-validation input {
+    padding: 0.25rem;
+    max-width: 300px;
+}
+
+.form-submit {
+    padding: 0.5rem;
+    border-radius: 10px;
+    width: 125px;
+    background-color: lightblue;
+    text-decoration: none;
+    color: dimgray;
+}
+
+.form-submit:hover{
+    background-color: aquamarine;
+}
+
+.errorlist {
+    color: #F00;
+    margin-left: 2rem;
+}
+
+.errorlist li::marker {
+    content: '🚨 ';
+}
+
+.logout {
+    display: inline-block;
+    margin-left: 10%;
+}
+
+.port_item{
+    text-decoration: none;
+    color: darkcyan;
+}
+
+.logout-button {
+    font-family: "Times New Roman", "Serif", serif;
+    font-size: 1em;
+    padding: 15px 7px;
+    background-color: lightblue;
+    text-decoration: none;
+    color: dimgray;
+    border-radius: 5px;
+    border: none;
+}
+
+.logout-button:hover {
+    background-color: aquamarine;
+}
+
+.nav-control{
+    margin-top: 2%;
+}

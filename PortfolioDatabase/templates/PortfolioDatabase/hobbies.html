@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        {% load static %}
+        <title>Hobbies</title>
+        <link rel="stylesheet" href="../../../static/style.css">
+    </head>
+    <body>
+        {% if hobbies_list %}
+            <a href="/" style="margin-left: 40%" class="btn">Home</a>
+            <a href="/portfolio/" class="btn">Portfolio</a>
+            {% if user.is_authenticated %}
+            <form class="logout" action="/logout" method="post">
+                {% csrf_token %}
+                <button class="logout-button">Logout</button>
+            </form>
+        {% endif %}
+            <h2>My Hobbies</h2>
+            <ul>
+            {% for hobby in hobbies_list %}
+                <li>
+                    <h5>{{ hobby.hobby_name }}:</h5>
+                    <p class="base">{{ hobby.hobby_description }}</p>
+                <br>
+                </li>
+            {% endfor %}
+            </ul>
+        {% else %}
+            <p>No hobbies are available.</p>
+        {% endif %}
+    </body>
+</html>

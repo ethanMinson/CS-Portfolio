@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        {% load static %}
+        <title>Hobbies Detailed</title>
+        <link rel="stylesheet" href="../../../static/style.css">
+    </head>
+    <body>
+        {% if hobbies_list %}
+            <div class="nav-control">
+            <a href="/" class="btn" style="margin-left: 40%">Home</a>
+            <a href="/portfolio/" class="btn">Portfolio</a>
+            {% if user.is_authenticated %}
+            <form class="logout" action="/logout" method="post">
+                {% csrf_token %}
+                <button class="logout-button">Logout</button>
+            </form>
+        {% endif %}
+            </div>
+            <h2 class="detailed">My Hobbies</h2>
+            <ul class="detailed">
+            {% for hobby in hobbies_list %}
+                <li class="hd">
+                    <h5>{{ hobby.hobby_name }}:</h5>
+                    <p class="hd">{{ hobby.hobby_description }}</p>
+                    <img src="{{ hobby.hobby_img.url }}" alt="{{ hobby.hobby_name }}" class="hd"/>
+                <br>
+                </li>
+            {% endfor %}
+            </ul>
+        {% else %}
+            <p>No hobbies are available.</p>
+        {% endif %}
+    </body>
+</html>

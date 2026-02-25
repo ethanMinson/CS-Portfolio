@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+{% load static %}
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>
+        {% block title %}
+            Account Creation
+        {% endblock %}
+    </title>
+    <link rel="stylesheet" href="{% static 'style.css' %}">
+</head>
+<body>
+    <a href="/" style="margin-left: 40%" class="btn">Home</a>
+    <a href="/hobbies/" class="btn">Hobbies</a>
+    <a href="/portfolio/" class="btn">Portfolio</a>
+    <br>
+    <h1>Create Account</h1>
+    <form action="/create_account/" method="post" class="form-with-validation">
+        {% csrf_token %}
+        {{ form }}
+        <button class="form-submit">Create Account</button>
+    </form>
+    <main>
+        {% block content %}
+        {% endblock %}
+    </main>
+</body>
+</html>

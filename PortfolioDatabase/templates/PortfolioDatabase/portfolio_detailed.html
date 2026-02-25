@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        {% load static %}
+        <title>{{ project.name }}</title>
+        <link rel="stylesheet" href="../../../static/style.css">
+    </head>
+    <body>
+            <a href="/" style="margin-left: 40%" class="btn">Home</a>
+            <a href="/hobbies/" class="btn">Hobbies</a>
+            <a href="/portfolio/" class="btn">Portfolio</a>
+            {% if user.is_authenticated %}
+            <form class="logout" action="/logout" method="post">
+                {% csrf_token %}
+                <button class="logout-button">Logout</button>
+            </form>
+        {% endif %}
+        <h2 class="detailed">{{ project.name }}</h2>
+        <p class="dispPage">{{ project.description }}</p>
+            <p>Click <a href="{{ project.link }}" target="_blank" rel="noopener noreferrer">here</a> to view the GitHub repo</p>
+        <img src="{{ project.image.url }}" alt="{{ project.name }}" class="displayed"/>
+        {% if user.is_authenticated %}
+            <a href="{% url 'portfolio_edit' slug=project.slug %}" style="margin-left: 30%" class="btn">edit</a>
+            <a href="{% url 'portfolio_delete' slug=project.slug %}" style="margin: 5px" class="btn">delete</a>
+        {% endif %}
+    </body>
+</html>
